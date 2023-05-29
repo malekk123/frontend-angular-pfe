@@ -1,0 +1,31 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>
+            Menu
+        </div>
+       <button routerLink="/admin" mat-list-item><mat-icon mat-list-icon>home</mat-icon>Page d'accueil</button>
+       <button mat-list-item routerLink="/admin/profile" routerLinkActive="active"><mat-icon mat-list-icon>account_circle</mat-icon>Profil</button>
+       <button mat-list-item routerLink="/admin/list-entreprise" routerLinkActive="active"><mat-icon mat-list-icon>supervised_user_circle</mat-icon>Liste des entreprises</button>
+       <button mat-list-item routerLink="/admin/nouvelle-entreprise"routerLinkActive="active"><mat-icon mat-list-icon>person_add</mat-icon>ajouter entreprise</button>
+
+       <button mat-list-item routerLink="/admin/categories" routerLinkActive="active">
+        <mat-icon mat-list-icon>list</mat-icon> Categories
+       </button>
+       <button mat-list-item routerLink="/admin/add-category"routerLinkActive="active">
+         <mat-icon mat-list-icon>add_circle_outline</mat-icon> Ajouter des Categories
+       </button>
+       <button mat-list-item routerLink="/admin/quizzes"routerLinkActive="active">
+         <mat-icon mat-list-icon>quiz</mat-icon> Quizzes
+       </button>
+       <button mat-list-item routerLink="/admin/add-quiz" routerLinkActive="active">
+         <mat-icon mat-list-icon>add</mat-icon> Ajouter Quiz
+       </button>
+       <button mat-list-item (click)="logout()"
+       *ngIf="isLoggedIn" >
+         <mat-icon mat-list-icon>logout</mat-icon> Logout
+       </button>
+  
+    </mat-action-list>
+</mat-card>
+    
+       

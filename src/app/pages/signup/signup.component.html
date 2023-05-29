@@ -1,0 +1,256 @@
+<div class="bootstrap-wrapper Background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+            <div class="container text-center">
+              <img src="../../../assets/logo.jpg" alt="" />
+            </div>
+  
+            <h1 class="text-center">S'inscrire Ici !!</h1>
+  
+              
+               <!-- <form (ngSubmit)="formSubmitentre()">
+                   Username field -->
+                  <!--<mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Nom entreprise</mat-label>
+                    <input
+                      required
+                      [(ngModel)]="entreprise.noment"
+                      name="nom entreprise"
+                      matInput
+                      placeholder="Entrer ici votre nom de l'entreprise"
+                    />
+                    <mat-hint>le nom de l'entreprise doit être unique !!</mat-hint>
+                  </mat-form-field>
+      
+                   email field -->
+                 <!-- <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>L'email de l'entreprise</mat-label>
+                    <input
+                      required
+                      [(ngModel)]="entreprise.email"
+                      name="email"
+                      type="text"
+                      matInput
+                      placeholder="Entrer l'email de l'entreprise"
+                    />
+                  </mat-form-field>
+                  <div class="container text-center">
+                    <button type="submit" mat-raised-button color="primary">
+                      ajouter entreprise
+                    </button>
+                  </div>
+                </form>
+                <div>
+                  <button mat-button matStepperNext>Suivant</button>
+                </div>
+           
+            <!-- {{ user | json }} -->
+           
+            <form #passwordValidation="ngForm" (ngSubmit)="formSubmit()">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Le nom de l'entreprise</mat-label>
+                <input
+                  required
+                  [(ngModel)]="entreprise.noment"
+                  name="nom"
+                  type="text"
+                  matInput
+                  placeholder="Entrer le nom de l'entreprise"
+                />
+              </mat-form-field>
+            <!--  <mat-form-field class="full-width" appearance="outline">
+                <mat-label>L'email de l'entreprise</mat-label>
+                <input
+                  required
+                  [(ngModel)]="entreprise.email"
+                  name="email"
+                  type="text"
+                  matInput
+                  placeholder="Entrer l'email de l'entreprise"
+                  #email="ngModel"
+                  [pattern]="usernameT"
+
+                  />
+              </mat-form-field>
+              <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors?.['required']">Mail de l'utilisateur est obligatoire</div>
+                 <div *ngIf="email.errors?.['pattern']">
+                 Email est invalide
+               </div>
+             </div>
+             
+              <!--<span ng-show="frm.email.$dirty && frm.email.$error.email">ce n'est pas un email</span>
+              <span class="text-danger"  *ngIf="email.errors?.['required'] && email.touched">
+                Email est requie
+              </span>
+                                pattern=”^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9-.]+$”
+
+              <span class="text-danger" *ngIf="email.errors?.['pattern'] && email.touched">
+                Email est invalide
+              </span>
+              <!-- Username field -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label> Email de l'utilisateur </mat-label>
+                <input  
+                  [(ngModel)]="user.username"
+                  name="username"
+                  matInput
+                  placeholder="Entrer ici votre email"
+                  id="username"
+                  required
+                  #username="ngModel"
+                  [pattern]="usernameT"
+                  />
+                  <mat-hint class="text-danger" *ngIf="username.errors?.['required'] && username.touched">saisir votre email !!</mat-hint>
+              </mat-form-field>
+              
+              <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+               <div *ngIf="username.errors?.['required']">Mail de l'utilisateur est obligatoire</div>
+                <div *ngIf="username.errors?.['pattern']">
+                Email est invalide
+              </div>
+            </div>
+              <!-- Password field -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>mot de passe de l'utilisateur</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.password"
+                  name="password"
+                  type="password"
+                  matInput
+                  placeholder="Entrer Ici votre mot de passe"
+                  minlength="8"
+                  maxlength="12"
+                  #password="ngModel"
+                  [pattern]="passwordPtn"
+                  />
+              </mat-form-field>
+              <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+              <div *ngIf="password.errors?.['required']"> Password required</div>
+              <div *ngIf="password.errors?.['minlength']">
+                Le mot de passe doit être au mininum 8 caractére
+              </div>
+              <div *ngIf="password.errors?.['maxlength']">
+                Le mot de passe ne doit pas dépasser 12 caractére
+              </div>
+              <div *ngIf="password.errors?.['pattern']">
+                 Le mot de passe doit contenir des chiffres et caractères spéciaux et au moins une lettre majuscule
+              </div>
+              </div>
+              <!--field pour confirmer mot de passe-->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Confirmer le mot de passe</mat-label>
+                <input
+                [(ngModel)]="confirmpassword"
+                required
+                name="confirmpassword"
+                type="password"
+                matInput
+                placeholder="confirmer votre mot de passe"
+                #confirmPassword="ngModel"
+                pattern="{{user.password}}"
+                />
+               </mat-form-field>
+               <div class="alert alert-danger" *ngIf="confirmPassword.touched && !confirmPassword.valid">
+               <div *ngIf="confirmPassword.errors?.['required']"> 
+                  champs obligeatoire</div>
+                  <div *ngIf="(confirmPassword.touched || passwordValidation.submitted) && user.password !== confirmpassword">
+                Le mot de passe et confirmation ne sont pas les mêmes </div>
+               </div>
+              <!-- first name  -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label> Nom</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.firstName"
+                  name="nom"
+                  matInput
+                  placeholder="Entrer ici votre nom"
+                />
+              </mat-form-field>
+  
+              <!-- lastname -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Prénom</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.lastName"
+                  name="prénom"
+                  matInput
+                  placeholder="Entrer votre prénom"
+                />
+              </mat-form-field>
+  
+              <!-- email -->
+            <!--  <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Email Address</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.email"
+                  name="email"
+                  type="email"
+                  matInput
+                  placeholder="Entrer ici votre email"
+                />
+              </mat-form-field>
+         -->
+              <!-- phone number -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Téléphone</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.phone"
+                  name="phone"
+                  type="number"
+                  matInput
+                  placeholder="Entrer ici votre téléphone"
+                />
+              </mat-form-field>
+  
+              <!-- adresse  -->
+             <!-- <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Adresse</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.adresse"
+                  name="adresse"
+                  type="string"
+                  matInput
+                  placeholder="Entrer  votre Adresse"
+                />
+              </mat-form-field>
+               -->
+              <div class="container text-center">
+                <button type="submit" mat-raised-button color="primary" 
+                [disabled]="passwordValidation.form.invalid"
+                >
+                <!--[disabled]="!(username.errors?.['required'] && password.errors?.['required']
+                && confirmPassword.errors?.['required'])"
+                -->
+                  s'inscrire
+                </button>
+                
+                <a mat-button 
+                routerLink="/login"
+                >
+                Vous avez déjà un compte?
+            </a>
+          
+              </div>
+            </form>
+          <!--   <a mat-button 
+                routerLink="/login"
+                >
+                Vous avez déjà un compte?
+            </a>
+             -->
+           
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

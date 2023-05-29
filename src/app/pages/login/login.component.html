@@ -1,0 +1,85 @@
+<div class="bootstrap-wrapper Background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+            <div class="container text-center">
+              <img src="../../../assets/logo.jpg" alt="" />
+            </div>
+  
+            <h1 class="text-center">Authentification </h1>
+      
+            <!-- {{ loginData | json }} -->
+            <form #logintest="ngForm" (ngSubmit)="formSubmit()">
+              <!-- username field -->
+             
+              <mat-form-field class="full-width centre" appearance="outline">
+                <mat-label>Email de l'utilisateur</mat-label>
+                <input
+                  [(ngModel)]="loginData.username"
+                  name="username"
+                  required
+                  [pattern]="usernameT"
+                  matInput
+                  placeholder="Entrer l'email de l'utilisateur"
+                />
+                <mat-hint>Vous pouvez saisir votre email </mat-hint>
+              </mat-form-field>
+       
+            
+              <!-- password field  -->
+  
+              <mat-form-field class="full-width t5 centre" appearance="outline">
+                <mat-label>Mot de passe de l'utilisateur</mat-label>
+                <input
+                  [(ngModel)]="loginData.password"
+                  name="password"
+                  type="password"
+                  required
+                  matInput
+                  placeholder="Entrer votre mot de passe"
+
+                  />
+              </mat-form-field>
+  
+             <!-- <ngx-recaptcha2 #captchaElem
+              [siteKey]="siteKey"
+              [(ngModel)]="recaptcha"> <!--(expire)="handleExpire()"
+                (load)="handleLoad()"
+              </ngx-recaptcha2>-->
+
+                 <div class="mt-20 test">
+                  <ngx-recaptcha2 #captchaElem
+                  [siteKey]="siteKey"
+                  [(ngModel)]="loginData.recaptcha"
+                  [ngModelOptions]="{standalone: true}"
+                  >
+                </ngx-recaptcha2>
+                 </div>        
+              <div class="container text-center">
+                <button mat-raised-button color="primary" type="submit" [disabled]="logintest.form.invalid">
+                  Login
+                </button>
+                
+                <a mat-button 
+                routerLink="/signin"
+                routerLinkActive="true"
+                >
+                Vous n'avez pas encore un  compte
+            </a> 
+            </div>
+            <div class="container text-center">
+              <a mat-button
+              routerLink="/forgotpassword"
+              routerLinkActive="true"
+              >
+                Mot de passe oublié?
+              </a>
+            </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

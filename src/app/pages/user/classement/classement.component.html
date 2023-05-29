@@ -1,0 +1,86 @@
+<div class="container mt-5">    
+    <div class="row">
+        <mat-card>
+            <form (submit)="formSubmit()">
+            <div class="row">
+                <div class="col-md-4">          
+                <mat-form-field appearance="outline"class="w100">
+                      <mat-label>Nom du candidat</mat-label>
+                      <input 
+                      [(ngModel)]="candidat.nom"
+                      name="firstName"
+                      matInput placeholder="Placeholder">
+                      <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+                      <mat-hint>Name</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="espace w100 " appearance="outline">
+                      <mat-label>Prenom du candidat</mat-label>
+                      <input 
+                      [(ngModel)]="candidat.prenom"
+                      matInput placeholder="Placeholder"
+                      [ngModelOptions]="{standalone: true}">
+                      <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+                      <mat-hint>Prenom</mat-hint>
+                    </mat-form-field>
+                </div>
+                 <div class="col-md-4">
+                    <mat-form-field class=" w100 espace" appearance="outline">
+                      <mat-label>Mail du candidat</mat-label>
+                      <input
+                      [(ngModel)]="candidat.email"
+                      name="lastName"
+                      matInput placeholder="Placeholder">
+                      <mat-icon matSuffix>contact_mail</mat-icon>
+                      <mat-hint>Mail </mat-hint>
+                    </mat-form-field>
+                </div>
+            
+                </div>
+                <button class="btn btn-warning mt-3" type="submit">Ajouter candidat</button>
+
+            </form>
+
+         <!--   <input #myuser type="text" class="form-control" [placeholder]="CreateUser"> (click)="onclick(myuser)-->
+            <!--<button class="btn btn-info  mt-3 espace" (click)="import()"><mat-icon>file_download</mat-icon>exporter</button>
+            -->
+       
+            <table class="table table-bordered mt-3">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Nom Candidat</th>
+                        <th>Email candidat</th>
+                        <th>note globale</th>
+                        <th>Etat de candidat</th>
+                        <th>Le rapport </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let candidat of candidatexam;let i = index">
+                    <td>{{i+1}}</td>
+                    <td> {{candidat.nom}} {{candidat.prenom}}</td>
+                    <td>{{candidat.email}} </td>
+                       <td>
+                            {{candidat['notetotale']}}
+                        </td> <!--{{candidat.candidat['nom']}}  {{candidat.candidat['prenom']}} {{candidat.candidat['email']}}-->
+                        <td>
+                           <mat-chip-list>
+                            <mat-chip color="primary" (click)="select()" selected> <mat-icon *ngIf="selectcheckt">checked</mat-icon>Retenu</mat-chip>
+                            <mat-chip color="warn" selected (click)="select2()"><mat-icon *ngIf="selectcheckt2">do_not_disturb_on</mat-icon>Refusé</mat-chip>
+                           </mat-chip-list> 
+                        </td>
+                        <td>
+                            
+                            <button type="button" class="btn btn-info">Voir le rapport</button>
+                              
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+    </mat-card>
+    </div>
+</div>

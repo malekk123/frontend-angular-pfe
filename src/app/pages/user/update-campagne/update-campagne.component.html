@@ -1,0 +1,68 @@
+<mat-card>
+    <h1><strong>Mettre à jour les information de la campagne</strong></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form *ngIf="campagne" (submit)="updateData()">
+                     <!-- title field  -->
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Entrer Title</mat-label>
+            <input
+              [(ngModel)]="campagne.nomCampagne"
+              type="text"
+              name="title"
+              placeholder="Entrer here"
+              matInput
+              required
+            />
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Entrer une date</mat-label>
+            <input matInput   [(ngModel)]="campagne.dateDebut" name="dateDebut" required [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>    
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="w100" appearance="fill">
+            <mat-label>Entrer une date</mat-label>
+            <input matInput  [(ngModel)]="campagne.dateFin" name="dateFin" required [matDatepicker]="pickerr">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>    
+            <mat-datepicker #pickerr></mat-datepicker>
+        </mat-form-field>
+           
+          <!-- active field   -->
+         <mat-divider></mat-divider>
+          <mat-slide-toggle
+            name="active"
+            [(ngModel)]="campagne.active"
+            class="mt20"
+          >
+           Etat de la campagne
+          </mat-slide-toggle>
+
+          <br />
+
+           <!-- archiver field   -->
+
+           <mat-slide-toggle
+           name="archive"
+           [(ngModel)]="campagne.archived"
+           class="mt20"
+         >
+          Voulez-vous archiver de la campagne
+         </mat-slide-toggle>
+
+         <br />
+
+         <div class="container text-center">
+            <button mat-raised-button color="primary" type="submit">Mettre à jour</button>
+          </div>
+        
+        
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-card>

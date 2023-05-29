@@ -1,0 +1,21 @@
+
+<mat-dialog-content class="mat-typography">
+    <h2 mat-dialog-title style="background-color: darkblue;">Information détaillées sur l'utilisateur</h2>
+<h3><strong>Nom de l'utilisateur </strong> : {{user['username']}} </h3>
+
+<h3><strong>NOM</strong>  : {{user['firstName']}}</h3>
+
+<h3><strong>PRENOM</strong>  : {{ user['lastName']}}</h3>
+
+<h3><strong>EMAIL</strong>  :  {{user['email']}}</h3>
+
+<h3><strong>TELEPHONE</strong>  :  {{user['phone']}}</h3>
+
+<h3><strong>ADRESSE</strong>  : {{user['adresse']}} </h3>
+
+<h3><strong>STATUS</strong> :  {{user['enabled']}}</h3>
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button class="mat-raised-button btn btn-danger " mat-dialog-close >fermer</button>
+</mat-dialog-actions>

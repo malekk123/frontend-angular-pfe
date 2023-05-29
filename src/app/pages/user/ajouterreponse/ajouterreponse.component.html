@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>
+        Entrer les réponses de la question 
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="mt20" (submit)="Submit()">
+        <mat-icon class="add-reponse-btn" (click)="addreponseform()">add</mat-icon>
+        <ng-container *ngFor="let reponse of reponses; let i = index;" >
+          <div class="reponse-form-row" >
+            <mat-form-field><!-- appearance="fill">-->
+             <input
+             required 
+             matInput
+             [(ngModel)]="reponses[i].reponse"
+             placeholder="reponse à la question"
+             name="reponse"
+             />
+            </mat-form-field>
+            <mat-slide-toggle
+            name="active"
+           [(ngModel)]="reponses[i].estcorrecte"
+            class="mt20"
+          >
+          </mat-slide-toggle> <!-- [(ngModel)]="reponset.estcorrecte" -->
+           <mat-icon class="delete-btn" (click)="deleteResponse(i)">delete_forever</mat-icon>
+   
+           </div>
+         </ng-container>
+         <div class="container text-center">
+          <button mat-raised-button color="primary"
+          [disabled]= "reponses.length <= 1"
+          type="submit">Ajouter</button>
+        </div>
+    
+        <!-- content field -->
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <!--{{reponses | json}}-->

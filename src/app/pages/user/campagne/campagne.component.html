@@ -1,0 +1,112 @@
+<h1 class="mt20"><strong>Mes campagnes</strong></h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container text-center">
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="'/user-dashboard/add-campagne' "
+          >
+            Ajouter une campagne
+          </button>
+        </div>
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="exemple-tab-icon">bookmark</mat-icon>
+                    Active
+                </ng-template>
+                <mat-grid-list cols="2" rowHeight="300px" gutterSize="20px">
+                <mat-grid-tile  classe="mat-elevation-z4" style="border-radius: 10px;"*ngFor="let campagne of campagnesact">
+                <mat-card class="mat-elevation-z4" >
+                 <mat-card-header>
+                    <div mat-card-avatar class="example-header-image-active"></div>
+                    <mat-card-title>Nom de la campagne:<strong>{{campagne['nomCampagne']}}</strong></mat-card-title> 
+                 </mat-card-header>
+                    <mat-card-content>
+                    <mat-list> 
+                       <mat-list-item>
+                        <mat-icon>calendar_month</mat-icon>
+                        <div mat-line>Date de début de la camagne :{{ campagne['dateDebut'] }}</div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                          <mat-list-item>
+                            <mat-icon>date_range</mat-icon>
+                            <div mat-line>Date de fin de la campagne:{{ campagne['dateFin'] }}</div>
+                         </mat-list-item>
+                            <mat-divider></mat-divider>
+                    </mat-list>
+
+                   </mat-card-content>
+                   <mat-card-action>
+                    <button [routerLink]="'/user-dashboard/campagne/details/' + campagne['campid'] + '/' + campagne['nomCampagne'] " class="espace" mat-button mat-mini-fab color="primary" >
+                        <mat-icon>info</mat-icon>
+                      </button>
+                      <button  [routerLink]="'/user-dashboard/campagne/'+ campagne['campid']"
+                      class="espace" mat-button mat-mini-fab color="accent">
+                        <mat-icon>edit_calendar</mat-icon>
+                      </button>
+                      <button (click) = "delete(campagne['campid'])"class="espace" mat-button mat-mini-fab color="warn">
+                        <mat-icon>auto_delete</mat-icon>
+                      </button>
+                    </mat-card-action>
+                
+                </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="exemple-tab-icon">archive</mat-icon>
+                    Archive
+                </ng-template>
+
+                <mat-grid-list cols="2" rowHeight="300px" gutterSize="20px">
+                    <mat-grid-tile  classe="mat-elevation-z4" style="border-radius: 10px;"*ngFor="let campagne of campagnesarch">
+                    <mat-card class="mat-elevation-z4" >
+                     <mat-card-header>
+                        <div mat-card-avatar class="example-header-image-archive"></div>
+                        <mat-card-title>Nom de la campagne:<strong>{{campagne['nomCampagne']}}</strong></mat-card-title> 
+                     </mat-card-header>
+                        <mat-card-content>
+                        <mat-list> 
+                           <mat-list-item>
+                            <mat-icon>calendar_month</mat-icon>
+                            <div mat-line>Date de début de la camagne :{{ campagne['dateDebut']  }}</div>
+                             </mat-list-item>
+                                <mat-divider></mat-divider>
+                                <mat-list-item>
+                                    <mat-icon>calendar_month</mat-icon>
+                                    <div mat-line>Date de début de la camagne :{{ campagne['dateFin']  }}</div>
+                                     </mat-list-item>
+                                   <mat-divider></mat-divider>
+                            </mat-list>
+    
+                       </mat-card-content>
+                       <mat-card-action>
+                        <button (click)="details(campagne['campid'])" class="espace" mat-button mat-mini-fab color="primary" >
+                            <mat-icon>info</mat-icon>
+                          </button>
+                          <button  [routerLink]="'/user-dashboard/campagne/'+ campagne['campid']"
+                          class="espace" mat-button mat-mini-fab color="accent">
+                            <mat-icon>edit_calendar</mat-icon>
+                          </button>
+                          <button (click) = "delete(campagne['campid'])"class="espace" mat-button mat-mini-fab color="warn">
+                            <mat-icon>auto_delete</mat-icon>
+                          </button>
+                       
+                        </mat-card-action>
+                    
+                    </mat-card>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                    
+            </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+</div>  

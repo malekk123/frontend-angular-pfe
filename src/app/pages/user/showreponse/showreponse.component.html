@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <mat-card *ngFor="let re of reponses; let j=index">
+      <div class="col-md-6" >
+        <p><b>{{j+1}})</b> {{ re['reponse'] }} 
+           <img src="/assets/tick correcte.jpg"
+            alt="wrong"
+            *ngIf="re['estcorrecte']==true"
+            class="profile-image"
+            >
+            <img src="/assets/wrt.jpeg"
+            alt="wrong"
+            *ngIf="re['estcorrecte']==false"
+            class="profile-image"
+            >
+        </p>
+            
+    </div> 
+      
+    </mat-card>
+    
+    </div >
+    <div class="  text-center">
+        <button mat-raised-button mat-dialog-close color="warn">fermer</button>
+    </div>
+</div>

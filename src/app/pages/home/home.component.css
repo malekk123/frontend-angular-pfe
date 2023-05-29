@@ -1,0 +1,25 @@
+.center-div
+{
+     margin: 0 auto;
+     max-width: 700px;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: wheat;
+    
+}
+.Background {
+    background-image: url("/assets/arriere.png");
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+
+}
+img{
+    height: 520px;
+    position: center;
+}
+button{
+    margin-left: 200px;
+}

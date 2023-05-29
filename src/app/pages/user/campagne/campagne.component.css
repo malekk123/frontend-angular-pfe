@@ -1,0 +1,29 @@
+.espace{
+    margin: 13px;
+  }
+
+  .example-card {
+    max-width: 600px;
+  }
+  .example-header-image-active{
+    background-image: url("/assets/campaign.png");
+    background-size: cover;
+  }
+  .example-header-image-archive{
+    background-image: url("/assets/campaignarch1.png");
+    background-size: cover;
+  }
+  .espaceb mat-grid-list{
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+
+}
+.entete mat-grid-list{
+    
+    padding: auto;
+    height: 100%;
+    width: 100%;
+}

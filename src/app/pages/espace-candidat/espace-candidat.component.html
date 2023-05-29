@@ -1,0 +1,229 @@
+<div class="bootstrap-wrapper" *ngIf="!isSubmit" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <mat-card>
+            <mat-card-title>  <b>instructions</b> </mat-card-title>
+           <!-- instructions -->
+           <img mat-card-image  src="/assets/img24.png"/>
+           <mat-card-content>
+            <ul>
+                <li><b>Ne pas retélécharger la page</b></li>
+                <li><b>Si le temps écoule vous serez rediriger automatiquement</b></li>
+               <li><b>Bonne continuation!!</b></li>
+            </ul>
+           </mat-card-content>
+        </mat-card>
+        </div>
+        <div class="mt10 col-md-8">
+            <mat-card>
+                
+        
+                <mat-card-content>
+                  <div class="t1"*ngIf="!loading">
+                    <h1  class="text-center">Ooops</h1>
+                    <div class="text-center">
+                    <img class="image" src="/assets/error.png"/>
+                  </div>
+                    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "small" color = "#fff" type = "square-jelly-box" [fullScreen] = "false">
+
+                    </ngx-spinner>
+                    <div class=" tt text-center">
+                    <br/>
+                    <br/>
+                    &nbsp;
+                    
+                    <p>Vous avez perdu votre chance de passer l'examen </p>
+                    <br/>
+                    <p>Veuillez consulter l'entreprise en cas de probléme</p>
+                   &nbsp;
+                   &nbsp;
+                   <br/>
+                   <br/>
+                   <button mat-raised-button color="primary"  routerLink="/">Retourner vers la page d'accueil</button>  
+                  </div>
+
+                  </div>
+                <!-- ngxUiLoaderBlurred [loaderId]="'loader-01'">
+                  <ngx-ui-loader 
+                  [loaderId]="'loader-01'"
+                  ></ngx-ui-loader>-->
+                  <div *ngIf="loading">
+                    <form>
+                 
+
+                    <div class="row" >
+                      
+                       <div class="qt text-center">
+                      <h1 class="qt">  Question {{i+1}} / {{questions.length  }} </h1>
+                    
+                    </div>
+                    &nbsp;  
+                    <div aria-disabled="true" onmousedown="return false" onselectstart="return false" class="ml10">
+                     Q {{i+1}}) {{questions[i]?.content}}:
+                   
+                         <br/>
+                        <mat-divider></mat-divider>
+
+                        <div class="row mt20" *ngFor="let r of questions[i]?.reponses;let j=index;let k=index " >
+                            <div class="col-md-12">
+                               <br/>
+
+                               <input
+                                *ngIf="questions[i]?.type=='multiple'"
+                                type="checkbox"
+                                [value]="questions[i]?.reponses[j].reponse"
+                                name="rep_q_{{questions[i]?.quesId}}"
+                                id="{{questions[i]?.reponses[j].idreponse}}"
+                                (click)="resultM(questions[i]?.reponses[j].idreponse,questions[i]?.reponses[j].reponse,questions[i]?.quesId,questions[i]?.type,i)"
+                                class="cl2"
+                                > 
+                                <!--<label for="elem1"><div></div></label>-->
+                                &nbsp;
+                                <!--<mat-checkbox *ngIf="q.type=='multiple'"
+                                [(ngModel)]="candidat.reponse"
+                                >
+                                    {{q.reponses}} 
+                              </mat-checkbox>-->
+                              <input
+                              type="radio"
+                              [value]="questions[i]?.reponses[j].reponse"
+                              name="rep_q_{{questions[i]?.quesId}}"
+                              id="{{questions[i]?.reponses[j].idreponse}}"
+                              *ngIf="questions[i]?.type =='unique'"
+                              (click)="result(questions[i]?.reponses[j].idreponse,questions[i]?.reponses[j].reponse,questions[i]?.quesId,questions[i]?.type,i+1)"
+                              class="cl"
+                              >
+                              <label for="{{questions[i]?.reponses[j].idreponse}}"><div></div></label>
+                              &NonBreakingSpace;
+                              {{questions[i]?.reponses[j].reponse}}
+                              
+                              <!--<mat-radio-group [(ngModel)]="rep1">
+                              <mat-radio-button  *ngIf="q.type =='unique'" [value]="q.reponses[j].reponse"
+                              >
+                               {{q.reponses[j].reponse}} 
+                                 [routerLink]="'/commentaire'"
+                              </mat-radio-button>
+                            </mat-radio-group>-->
+                     
+                              <br/>
+                            </div>
+                        </div>
+                   
+                    <br/>
+                    
+                    </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button [disabled]="i==0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true">Précédent</i></button>
+                        <button class="btn" (click)="nextQuestion()" *ngIf="i<this.questions.length-1"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true">Suivant</i></button>
+                        <button  class="btn"  *ngIf="i==this.questions.length-1" (click)="submit()"><i class="fa text-primary fa-paper-plane fa-2x" aria-hidden="true"> Envoyer votre réponse</i>
+                       </button>
+                        </div>
+                      
+                        <div class="progress mb-3">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  
+                
+            </form>
+          </div>
+        </mat-card-content>
+            </mat-card>
+              
+            <!-- questions -->
+        <!--  <ng-container>
+            <h1 class="mt20">Vous pouvez tester </h1>
+          </ng-container>-->
+          <mat-card *ngFor="let i =index" class="mt10">
+            <mat-card-title>ou est le card</mat-card-title>
+            <mat-card-content>
+                
+                
+                    <b>Question {{i}}</b>
+                    <span onmousedown="return false" onselectstart="return false" class="ml10">
+                    Voici l'énoncé de la question
+                    </span>
+                
+                <p onmousedown="return false" onselectstart="return false" class="ml10">
+                    Voici l'énoncé de la question
+                    </p>
+                
+                <mat-divider></mat-divider>
+                <br/>
+                <div class="row mt20">
+                <div class="col-md-6">
+
+                    la réponse de la 1ere 
+                </div>
+                <div class="col-md-6">
+                    la 2éme réponse
+                </div>
+                </div>
+            <mat-divider></mat-divider>
+                <br/>
+                <div class="row mt20">
+                <div class="col-md-6">
+
+                    la réponse de la 1ere 
+                </div>
+                <div class="col-md-6">
+                    la 2éme réponse
+                </div>
+                </div>
+            </mat-card-content>
+          </mat-card>
+
+          </div>
+          <div class="col-md-2">
+            <!-- progress -->
+    
+            <mat-card *ngIf="questions" style="margin-top: 70px">
+              <mat-card-header>
+                <mat-card-title> Progression </mat-card-title>
+                <mat-card-subtitle>
+                    Le test sera automatiquement envoyé quand le temps s'achève <b>0:0</b>
+      
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <h1 class="text-center">{{ getFormattedTime() }}</h1>
+                <mat-spinner
+                  mode="determinate"
+                  color="accent"
+                  style="margin: auto"
+                  [value]="(timer/(t5 * 60))*100"
+                ></mat-spinner>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- show the result -->
+<div class="bootstrap-wrapper" *ngIf="isSubmit">
+  <div class="row mt20">
+    <div class="col-md-6 offset-md-3">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>  Merci d'avoir passer le test!  </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="text-center">
+          <img class="text-center" mat-card-image mat-card-lg-image src="/assets/img12.jpg"/>
+          <h1>Le recruteur reviendra vers vous rapidement pour vous donner les resultats. </h1>
+        <!--<h2>Bon courage par la suite!!</h2>--> 
+          </mat-card-content>
+        <mat-card-actions class="text-center">
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="'/user-dashboard/'"
+          >
+            Retourner vers la page d'accueil
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

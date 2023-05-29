@@ -1,0 +1,112 @@
+<mat-card>
+<h1>Ajouter une nouveau utilisateur à l'entreprise <strong> {{noment}}</strong> </h1>
+<div class="container">
+ <div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form (ngSubmit)="formSubmit()">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>User Name</mat-label>
+                <input
+                required
+                [(ngModel)]="user.username"
+                name="username"
+                matInput
+                placeholder="entrer ici"/>
+            </mat-form-field>
+            <!-- Password field -->
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>mot de passe de l'utlisateur</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.password"
+                  name="password"
+                  [type]="showPassword ? 'text' : 'password'"
+                  matInput
+                  name="password"
+                  placeholder="Entrer votre mot de passe"
+                />
+                <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':'visibility'}}</mat-icon>
+              </mat-form-field>
+           
+              <!-- first name  -->
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Prénom de l'utilisateur</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.firstName"
+                  name="prénom"
+                  matInput
+                  placeholder="Saisir le prénom de l'utilisateur"
+                />
+              </mat-form-field>
+  
+              <!-- lastname -->
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nom de l'utilisateur</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.lastName"
+                  name="nom"
+                  matInput
+                  placeholder="Saisir le nom de l'utilisateur"
+                />
+              </mat-form-field>
+  
+              <!-- email -->
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Email Addresse</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.email"
+                  name="email"
+                  type="email"
+                  matInput
+                  placeholder="Enter here"
+                />
+              </mat-form-field>
+  
+              <!-- phone number -->
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Téléphone</mat-label>
+                <input
+                  
+                  [(ngModel)]="user.phone"
+                  name="phone"
+                  type="number"
+                  matInput
+                  placeholder="Entrer votre télephone "
+                />
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Adresse</mat-label>
+                <input
+                  required
+                  [(ngModel)]="user.adresse"
+                  name="adresse"
+                  matInput
+                  placeholder="Entrer votre adresse"
+                />
+              </mat-form-field>
+  
+              <div class="container text-center">
+                <button type="submit" mat-raised-button color="primary">
+                  enregistrer
+                </button>
+                <button mat-raised-button  class="espace" (click)="back()" color="accent">Retouner vers la liste </button>
+              </div>  
+  
+        </form> 
+    </div>
+ </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+</mat-card>

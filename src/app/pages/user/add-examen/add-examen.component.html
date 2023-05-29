@@ -1,0 +1,168 @@
+<h1>Ajouter un examen à la campagne <strong> {{nomCampagne}} </strong> </h1>
+
+<div style="padding:3em">
+  
+    <mat-vertical-stepper [labelPosition]="'bottom'">
+
+    <mat-step label="Etape1:Saisir le nom et la durée de l'examen " state="timer" #stepper>
+        <form (ngSubmit)="formSubmit()">
+         <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Nom de l'examen</mat-label>
+            <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+              <input
+              required
+              autofocus
+              type="text"
+              name="nom examen"
+              matInput
+              placeholder="Saisir le nom"
+              [(ngModel)]="examen.nomexam"
+              [ngModelOptions]="{standalone: true}"
+              />
+            </mat-form-field>
+            
+        </p>
+        <p>
+        <mat-form-field appearance="outline">
+                <mat-label>Durée de l'examen</mat-label>
+                <mat-icon matSuffix>timer</mat-icon>
+                <input
+                required
+                type="number"
+                matInput
+                placeholder="Saisir la durée de l'examen"
+                [(ngModel)]="examen.duree"
+                [ngModelOptions]="{standalone: true}"
+                />
+            </mat-form-field>
+        </p>
+        
+        <button mat-button matStepperNext type="submit" (click)="onButtonClick()" >Suivant</button>
+    </form>
+    </mat-step>
+
+    <mat-step label="Etape2:Choisir des questions à partir de la bibliothéque général" state="photo_library" >
+       
+       
+                 <div class="col-md-6">
+            <form [formGroup]="sampleForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="taille center" >
+            <mat-label>Chercher les questions par quiz</mat-label>
+            <mat-select formControlName="searchInput"  (ngModelChange)="change($event)" ><!--[(ngModel)])="quiz.title">-->
+          <!--  <input name="searchInput" [(ngModel)]="searchInput" type="text" placeholder="chercher les questions par quiz" size="50"/>-->
+        <!-- <mat-option-group *ngFor="let categorie of categories"> --> 
+              <mat-option *ngFor="let q of quizzes"  [value]="q.qId">
+                {{q.title}}
+              </mat-option>
+          <!--</mat-option-group>-->
+        </mat-select>
+        </mat-form-field>
+        <button mat-raised-button  type="submit" color="accent">chercher</button>
+      </form>
+      </div>
+    
+      <div class="row mb20" *ngIf="show">
+        <div class="col-md-6" *ngFor="let q of questions; let i = index" appBorderCard>
+          <mat-card  class="mt20">
+            <mat-card-content>
+              <p>
+                <b> Q {{ i + 1 }})</b>
+                <span class="ml20" [innerHTML]="q['content']"></span>
+               <span class="space"> <b>note </b> {{ q['point'] }}
+               </span>
+              </p>
+            
+            
+            </mat-card-content>
+    
+            <mat-card-action>
+              <button mat-button (click)="showreponse(q['quesId'])" color="">Afficher les réponses</button>
+              <button mat-button (click)="ajouter(q['quesId'])" color="warn">
+                Ajouter à l'examen
+              </button>
+            </mat-card-action>
+          </mat-card>
+      </div>
+       <!-- <button mat-button matStepperPrevious>Précédent</button>-->
+       </div>
+       <button mat-button matStepperNext>Suivant</button>
+
+    </mat-step>
+
+    <mat-step label="Etape3:Sélectionner des questions depuis vos Questionnaires" state="library_books" >
+       
+       <div>
+        <div class="col-md-6">
+          <form [formGroup]="sampleForment" (ngSubmit)="onSubmitentre()">
+          <mat-form-field class="taille center" >
+          <mat-label>Chercher les questions par quiz</mat-label>
+          <mat-select formControlName="searchInputent"  (ngModelChange)="change2($event)" ><!--[(ngModel)])="quiz.title">-->
+        <!--  <input name="searchInput" [(ngModel)]="searchInput" type="text" placeholder="chercher les questions par quiz" size="50"/>-->
+      <!-- <mat-option-group *ngFor="let categorie of categories"> --> 
+            <mat-option *ngFor="let q of quizzes"  [value]="q.qId">
+              {{q.title}}
+            </mat-option>
+        <!--</mat-option-group>-->
+      </mat-select>
+      </mat-form-field>
+      <button mat-raised-button  type="submit" color="accent">chercher</button>
+    </form>
+    </div>
+  
+    <div class="row mb20" *ngIf="show2">
+      <div class="col-md-6" *ngFor="let q of questions; let i = index">
+        <mat-card  class="mt20">
+          <mat-card-content>
+            <p>
+              <b> Q {{ i + 1 }})</b>
+              <span class="ml20" [innerHTML]="q['content']"></span>
+            </p>
+            <div class="col-md-6">
+              <p><b>note </b> {{ q['point'] }}</p>
+            </div>
+          
+          </mat-card-content>
+  
+          <mat-card-action>
+            <button mat-button (click)="showreponse(q['quesId'])" color="">Afficher les réponses</button>
+            <button mat-button (click)="ajouter(q['quesId'])" color="warn">
+              Ajouter à l'examen
+            </button>
+          </mat-card-action>
+        </mat-card>
+    </div>
+     <!-- <button mat-button matStepperPrevious>Précédent</button>-->
+     </div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-button matStepperNext>Suivant</button>
+
+       </div>
+    </mat-step>
+       <mat-step label="Etape4:L'étape final " state="fact_check">
+        <ng-template matStepLabel>Vous avez fini l'ajout de l'examen</ng-template>
+        <p>
+          Vous pouvez maintenant ajouter les candidats associés à cette examen.
+        </p>
+        <div>
+          <button mat-raised-button color="primary" (click)="ajoutecandidat()" >inviter candidat</button>
+          <button mat-raised-button color="accent" class="espace" matStepperPrevious>Retourner</button>
+          <button mat-button (click)="stepper.reset()" class="espace">Vous voulez ajouter un autre examen</button>
+        </div>
+    </mat-step>
+    <ng-template matStepLabel="timer">
+         <mat-icon>timer</mat-icon>
+     </ng-template>   
+    
+    <ng-template matStepLabel="photo_library">
+        <mat-icon>photo_library</mat-icon>
+    </ng-template>
+    <ng-template matStepLabel="library_books">
+         <mat-icon>library_books</mat-icon>
+       </ng-template>
+    <ng-template matStepLabel="fact_check">
+      <mat-icon>fact_check</mat-icon>
+    </ng-template>
+    </mat-vertical-stepper>
+
+</div>

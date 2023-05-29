@@ -1,0 +1,86 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="entete">
+    <h1 class="mt20">Les utilisateurs associé à l'entreprise <strong> {{noment}} </strong> </h1>
+  </div>
+  <div class="container text-center">
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="'/admin/entreprise/'+ entrpriseid +'/'+noment +'/nouveau utilisateur'"
+    >
+     Ajouter un utilisateur
+    </button>
+     <button
+     mat-raised-button
+     color="accent"
+     (click)="back()"
+     class="espace"
+     >Retouner vers la liste des entreprises</button>
+  </div>
+
+    <mat-grid-list *ngIf="userN.length>0; else noUsers" cols="2" rowHeight="500px" gutterSize="20px">
+      <mat-grid-tile  classe="mat-elevation-z4" style="border-radius: 10px;" *ngFor="let user of userN">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>
+            {{user['username'] }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{ user['firstName'] + ' '+  user['lastName'] }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <!--<img mat-card-image class="imgs" src="../../../assets/user.png">-->
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon>contact_mail</mat-icon>
+            <div mat-line>{{ user['email'] }}</div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+            <mat-list-item>
+            <mat-icon>call</mat-icon>
+          <div mat-line>{{ user['phone'] }}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon>home</mat-icon>
+        <div mat-line>{{ user['adresse'] }}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+        <!--<mat-list-item>
+          <mat-icon></mat-icon>
+          <div mat-line>{{user['enabled']? "ACTIVE" : "NOTACTIVE"}}</div>
+        </mat-list-item>-->
+        </mat-list>
+         </mat-card-content>
+        <mat-card-action>
+          <button (click)="details(user['id'])" class="espace" mat-button mat-mini-fab color="primary" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+         <button  [routerLink]="'/admin/user/'+ user['id']"
+          class="espace" mat-button mat-mini-fab color="accent">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click) = "delete(user['id'])"class="espace" mat-button mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-action>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list> 
+    
+   <ng-template #noUsers>
+    <div class="container text-center">
+    <img src="/assets/notfound.webp"
+    alt="notfound"
+    class="profile-image"
+    >
+    <h1>Pas d'utilisateurs associées à L' entreprise  <strong>{{noment}}</strong></h1>
+  </div>
+  </ng-template>
+
+  </div>
+  
+</div>

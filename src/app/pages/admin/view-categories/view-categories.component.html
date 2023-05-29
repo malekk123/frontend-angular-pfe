@@ -1,0 +1,25 @@
+<mat-card>
+    <h1>Toutes les Categories</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let c of categories">
+        <mat-icon mat-list-icon>category</mat-icon>
+        <div mat-line>{{ c['title'] }}</div>
+        <div mat-line>{{ c['description'] }}</div>
+        <button  [routerLink]="'/admin/update-quiz/' + c['cid']" mat-button mat-mini-fab color="accent">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deletecategorie(c['cid'])" 
+        class="espace" mat-button mat-mini-fab color="warn" >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  
+    <div class="container text-center mt20">
+      <button routerLink="/admin/add-category" class="espace" mat-raised-button color="primary">
+        Ajouter Categorie
+      </button>
+    </div>
+  </mat-card>
+  

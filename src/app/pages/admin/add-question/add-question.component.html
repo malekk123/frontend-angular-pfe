@@ -1,0 +1,183 @@
+<div class="bootstrap-wrapper">
+  <div class="row mt20">
+    <div class="col-md-12">
+      <h1>
+       Ajouter une Question au Quiz  <span style="font-weight: bold">{{ qTitle  }}</span>
+      </h1>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-subtitle>
+            Entrer les détails de cette question 
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="mt20" (submit)="formSubmit()">
+            <!-- content field -->
+
+             <mat-form-field class="w100">
+              <mat-label>écrire l'énoncé de la question </mat-label>
+              <textarea
+                required
+                rows="8"
+                [(ngModel)]="question.content"
+                name="content"
+                matInput
+                placeholder="Entrer ici"
+              ></textarea>
+            </mat-form-field> 
+            
+            
+            <div class="row">
+              <div class="col-md-6">
+            
+            <mat-form-field class="w100">
+              <mat-label>La note pour cette question</mat-label>
+              <input
+              required
+              name="la note "
+              [(ngModel)]="question.point"
+              type="number"
+              matInput            
+              /><!-- [(ngModel)]="question.point"-->
+            </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="w100">
+                  <mat-label>Choisir le type de question</mat-label>
+                <mat-select
+                class="question-select"
+                [(ngModel)]="question.type" name="type">
+                  <mat-option *ngFor="let type of typeList" [value]="type" 
+                >{{type}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+                  
+              </div>
+            </div>
+            
+         <!--   <ckeditor
+              [editor]="Editor"
+              name="content"
+              [(ngModel)]="question.content"
+            ></ckeditor> -->
+
+            <!-- options -->
+            
+           <!-- <div class="row">
+              <div class="col-md-6">
+                option1 -->
+
+                <!-- <mat-form-field class="w100">
+                  <mat-label>Entrer Option1</mat-label>
+                  <input
+                    required
+                    [(ngModel)]="question.option1"
+                    name="option1"
+                    type="text"
+                    matInput
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                 option2 -->
+                <!--<mat-form-field class="w100">
+                  <mat-label>Entrer Option2</mat-label>
+                  <input
+                    required
+                    [(ngModel)]="question.option2"
+                    name="option2"
+                    type="text"
+                    matInput
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                 option3 -->
+             <!--   <mat-form-field class="w100">
+                  <mat-label>Entrer Option3</mat-label>
+                  <input
+                    [(ngModel)]="question.option3"
+                    name="option3"
+                    type="text"
+                    matInput
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                option4 -->
+             <!--    <mat-form-field class="w100">
+                  <mat-label>Entrer Option4</mat-label>
+                  <input
+                    [(ngModel)]="question.option4"
+                    name="option4"
+                    type="text"
+                    matInput
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                 option4 -->
+             <!--   <mat-form-field class="w100">
+                  <mat-label>Entrer la note</mat-label>
+                  <input
+                    [(ngModel)]="question.point"
+                    name="note"
+                    type="number"
+                    matInput
+                  />
+                </mat-form-field>
+              </div>
+            
+            </div>
+
+           answer -->
+        <!--      <mat-form-field class="w100">
+              <mat-label>Sélectionner Answer</mat-label>
+              <mat-select required [(ngModel)]="question.answer" name="answer">
+                <mat-option
+                  *ngIf="question.option1"
+                  [value]="question.option1"
+                  >{{ question.option1 }}</mat-option
+                >
+                <mat-option
+                  *ngIf="question.option2"
+                  [value]="question.option2"
+                  >{{ question.option2 }}</mat-option
+                >
+                <mat-option
+                  *ngIf="question.option3"
+                  [value]="question.option3"
+                  >{{ question.option3 }}</mat-option
+                >
+                <mat-option
+                  *ngIf="question.option4"
+                  [value]="question.option4"
+                  >{{ question.option4 }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>-->
+            <br>
+            <br>
+                            <mat-slide-toggle name="bibus" [(ngModel)]="question.bibad">
+               ajouter la question à la bibliothéque </mat-slide-toggle>
+<br>
+<br>
+              <div class="container text-center">
+              <button mat-raised-button color="primary">ajouter à ma bibliothéque</button>
+               
+              <button (click)="back()" class="espace" mat-raised-button color="accent">Retourner vers la page précédente </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+       </div>
+  </div>
+</div>
+
+<!-- {{ question | json }} 
+ <br/>
+-->

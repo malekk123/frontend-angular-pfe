@@ -1,0 +1,57 @@
+<mat-toolbar color="primary"
+ *ngIf="router.url != '/evaluation-technique'">
+    <a
+      routerLink="/"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu_book</mat-icon>
+    </a>
+    <span>Examen en ligne</span>
+    <span class="example-spacer"></span>
+    <a
+      *ngIf="!isLoggedIn"
+      [routerLink]="'/login'"
+      mat-icon-button
+      class="example-icon favorite-icon espace"
+      aria-label="Example icon-button with heart icon"
+    >
+    <mat-icon>login</mat-icon>
+      Login
+    </a>
+  
+    <a
+      *ngIf="!isLoggedIn"
+      [routerLink]="'/signin'"
+      mat-icon-button
+      class="example-icon favorite-icon mr20 ml20 espace"
+      aria-label="Example icon-button with heart icon"
+    >
+    <mat-icon>app_registration</mat-icon>
+      inscrire
+    </a>
+  
+    <a
+      (click)="logout()"
+      *ngIf="isLoggedIn"
+      mat-icon-button
+      class="example-icon favorite-icon mr20 ml20 espace"
+      aria-label="Example icon-button with heart icon"
+    >
+    
+      Logout
+      <mat-icon>logout</mat-icon>
+    </a>
+  
+    <button
+      *ngIf="isLoggedIn && user"
+      class="example-icon favorite-icon ml20 espace"
+      mat-button
+      routerLink="/admin/profile"
+      aria-label="Example icon-button with heart icon"
+    >
+      {{ user['username'] }}
+    </button>
+  </mat-toolbar>
+  

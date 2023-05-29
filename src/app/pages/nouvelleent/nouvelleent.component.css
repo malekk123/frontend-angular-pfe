@@ -1,0 +1,15 @@
+.full-width {
+    width: 100%;
+  }
+
+  .Background {
+    background-image: url("../../../assets/arriere.png");
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  img{
+    width:50%
+  }

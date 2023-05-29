@@ -1,0 +1,47 @@
+
+    <div class="container-fluid">
+      <h1 class="mt20">les Quizzes disponibles</h1>
+      <div class="row mt20" *ngIf="quizzes">
+        <div class="col-md-6" *ngFor="let q of quizzes">
+          <mat-card class="mb20">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>
+                {{ q.title }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ q.category.title }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="truncate">{{ q.description }}</p>
+            </mat-card-content>
+            <mat-card-action>
+              <button mat-button [routerLink]="'/user-dashboard/questionnaire/voirquestion/' +  q.qId  + '/' + q.title "  color="primary">Voir</button>
+              <button
+                mat-button
+                color="primary"
+                [routerLink]="'/user-dashboard/questionnaire/ajouterquestion/' + q.qId  + '/' + q.title "
+                class="ml10"
+              >
+                Ajouter question
+              </button>
+              <!--<button mat-button color="accent">
+                Questions :{{ q.numberOfQuestions }} <q class="length"> q.length</q>
+              </button>
+              <button mat-button color="accent">NOTE GLOBAL :{{ q.maxMarks }}</button>-->
+            </mat-card-action>
+          </mat-card>
+        </div>
+  
+        <div class="col-md-12" *ngIf="quizzes.length == 0">
+          <mat-card>
+            <mat-card-content>
+              <h1>Il n'y a pas de données dans cette categorie</h1>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  
+  

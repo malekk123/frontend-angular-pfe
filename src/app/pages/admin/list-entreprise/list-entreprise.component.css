@@ -1,0 +1,40 @@
+.truncate {
+    display: block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .example-header-image {
+    background-image: url("/assets/company.png");
+    background-size: cover;
+  }
+  .example-card {
+    max-width: 700px;
+  }
+  mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 15vm;
+  }
+  .espace{
+    margin: 13px;
+  }
+.espaceb mat-grid-list{
+    padding: 50 50px 10px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+
+}
+.entete mat-grid-list{
+    
+    padding: auto;
+    height: 100%;
+    width: 100%;
+}
+
+/*.espaceb{
+    float: right;
+}*/

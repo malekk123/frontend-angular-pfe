@@ -1,0 +1,102 @@
+   <div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+            <mat-card class="mt20">
+                <img mat-card-image src="/assets/exam22.jpg"/>
+           <mat-card-content> 
+    <b>Bonjour Candidat, Voici les instructions à lire avant de passer l'examen
+    </b>   
+       </mat-card-content>
+        </mat-card>
+        </div>
+        <div class="col-md-10">
+         <mat-card class="mt20">
+            <mat-card-header>
+              <!-- heading -->
+              <mat-card-title>
+                Vous avez été invité(e) à passer un test 
+              </mat-card-title>
+              <mat-card-subtitle> Vous devrez effectuer cette évaluation sans l'aide d'une tierce personne. </mat-card-subtitle>
+            </mat-card-header>
+  
+            <mat-card-content class="ml20">
+              <!-- content  -->
+  
+          <!--    <h1>{{ quiz.title }}</h1>
+              <p>{{ quiz.description }}</p>
+               -->
+              <mat-divider></mat-divider>
+              <br />
+              <h1>Les importantes Instructions</h1>
+  
+              <ul>
+                <li>L' examen  est composé des questions à choix multiple.</li>
+  
+                <!-- Let the time of each questions is  2 minutes -->
+                <li>
+                    Le test est chronométré.La durée total est de <b> 20 minutes. </b>
+               
+                 <!-- <b> {{ quiz.numberOfQuestions * 2 }} Minutes.</b>
+                
+                --></li>
+                <li>Vous pouvez envoyé accéder à votre examen dans quelles moment vous voulez .</li>
+                
+                <li>
+                  Chaque question est notée.
+                  Pas de note négative pour les réponses fausses.
+                </li>
+                <li>Toutes les questions sont de type QCM.</li>
+              </ul>
+  
+              <mat-divider></mat-divider>
+              <br />
+              <h1>Veuillez noter que:</h1>
+              <ul>
+                <li>
+                    Il est interdit de tricher.Notre système détecte les tentatives de triches et préviendra le propriétaire du test le cas échéant.
+                </li>
+                <li>
+                    Il est strictement interdit d'enregistrer ou de divulguer les questions de ce test par quelque moyen que ce soit.
+                </li>
+                <li>Cliquer sur <b>Commencer test</b> button pour commencer l'examen</li>
+                <li>
+                 Le temps débute au moment où vous cliquez sur le boutton de début
+                    </li>
+                <li>
+                 Vous ne pouvez plus revenir à l'examen en cas d'interruption à cause de quelles raisons.
+                </li>
+                <li>
+                    Vous n'avez plus le droit d'annuler vos réponses une fois vous avez commencer.</li>
+                <li>
+                    Cliquez sur le bouton Soumettre le test à la fin de l'examen.</li>
+                <li>
+                    Vous receverez un email pour consulter votre resultat
+                </li>
+                <br>
+               <b> Bonne chance! </b>
+              </ul>
+              <section class="example-section">
+                <mat-checkbox class="example-margin" [(ngModel)]="isDisabled">J'ai lu et J'accepte les conditions générales</mat-checkbox>
+              </section>
+            </mat-card-content>
+            <mat-card-actions class="text-center">
+              <!-- actions -->
+         
+            <br>
+              <button
+                (click)="startQuiz()"
+                class=""
+                mat-raised-button
+                color="primary"
+                [disabled]="!isDisabled"
+              >
+                Commencer le test
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

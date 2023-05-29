@@ -1,0 +1,18 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+.taille{
+  width: 50%;
+}
+.espace{
+  margin: 13px;
+
+}
+mat-form-field { width: 280px; margin-right: 35px}
+.space{
+  margin: 15px;
+}

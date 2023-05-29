@@ -1,0 +1,49 @@
+<div class="bootstrap-wrapper Background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+            <div class="container text-center">
+              <img src="../../../assets/companysignin.png" alt="" />
+            </div>
+  
+            <h1 class="text-center">S'inscrire Ajouter entreprise!!</h1>
+  
+            <!-- {{ user | json }} -->
+  
+            <form (ngSubmit)="formSubmit()">
+              <!-- Username field -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Nom entreprise</mat-label>
+                <input
+                  required
+                  [(ngModel)]="entreprise.noment"
+                  name="nom entreprise"
+                  matInput
+                  placeholder="Entrer ici votre nom de l'entreprise"
+                />
+                <mat-hint>le nom de l'entreprise doit être unique !!</mat-hint>
+              </mat-form-field>
+  
+              <!-- email field -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>L'email de l'entreprise</mat-label>
+                <input
+                  required
+                  [(ngModel)]="entreprise.email"
+                  name="email"
+                  type="text"
+                  matInput
+                  placeholder="Entrer l'email de l'entreprise"
+                />
+              </mat-form-field>
+              <div class="container text-center">
+                <button type="submit" mat-raised-button color="primary">
+                  ajouter entreprise
+                </button>
+              </div>
+            </form>
+          </mat-card>
+        </div></div>
+    </div>
+</div>

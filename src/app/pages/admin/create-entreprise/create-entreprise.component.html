@@ -1,0 +1,111 @@
+<mat-card>
+    <h1>Vous pouvez ajouter une entreprise</h1>
+   <div class="container">
+    <mat-card-content>
+        <img mat-card-image src="/assets/kindpng_6236371.png" alt="" class="profile-image">
+    </mat-card-content>
+    <div class="row"> 
+    <div class="col-md-8 ">
+        <form  (ngSubmit)="formSubmit()" >
+            <!--Nom entreprise-->
+            
+            <mat-form-field class ="w100" appearence="fill">
+            <mat-label> Le nom de votre entreprise</mat-label>
+           <input
+           [(ngModel)]="entreprise.noment"
+           type="text"
+           name="Nom entreprise"
+           placeholder="saisir nom "
+           matInput
+           required
+           />
+           <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+        </mat-form-field>
+            
+        <!--Email entreprise-->
+    
+        <mat-form-field class ="w100" appearence="fill">
+            <mat-label> email de votre entreprise </mat-label>
+            <input
+            [(ngModel)]="entreprise.email"
+            type="email"
+            name="email"
+            placeholder="saisir votre email"
+            matInput
+            required
+            />
+            <mat-icon matSuffix>contact_mail</mat-icon>
+        </mat-form-field>
+    
+        <!--Numéro téléphone-->
+        <mat-form-field class ="w100" appearence="fill">
+            <mat-label> Téléphone</mat-label>
+            <input 
+            [(ngModel)]="entreprise.numtele"
+            type="number"
+            name="téléphone"
+            placeholder="saisir votre téléphone"
+            matInput
+            /> 
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+         <!--Numéro fax-->
+         <mat-form-field class ="w100" appearence="fill">
+            <mat-label>Fax</mat-label>
+            <input 
+            [(ngModel)]="entreprise.fax"
+            type="number"
+            name="téléphone"
+            placeholder="saisir votre fax"
+            matInput
+            /> 
+            <mat-icon matSuffix>fax</mat-icon>
+        </mat-form-field>
+        <!--fax -->
+        <mat-form-field class ="w100" appearence="fill">
+            <mat-label>Site web</mat-label>
+            <input
+            [(ngModel)]="entreprise.siteweb"
+            type="url"
+            name="site web"
+            placeholder="entrer votre site web"
+            matInput
+            />
+            <mat-icon matSuffix>language</mat-icon>
+        </mat-form-field >
+      <!--  <h1>Vous pouvez configurer  votre invitation par mail</h1>
+        Signature email-->
+       <!-- <mat-form-field class ="w100" appearence="fill" >
+            <mat-label>Signature d'email</mat-label>
+            <input
+            [(ngModel)]="entreprise.signatureMail"
+            type="text"
+            name="signature mail"
+            placeholder="entrer votre signature email"
+            matInput
+            />
+            <mat-icon matSuffix>label_important</mat-icon>
+        </mat-form-field>
+        desciption body email-->
+       <!-- <mat-form-field field class="w100" appearance="fill">
+            <mat-label>Entrer le contenu de votre mail</mat-label>
+            <textarea
+            [(ngModel)]="entreprise.desccontenumail"
+            type="text"
+            name="le contenu du mail"
+            placeholder="Vous pouvez saisir le contenu du mail"
+            matInput
+            rows="5"
+            ></textarea>
+        </mat-form-field> -->
+           <div class="container text-center">
+            <button mat-raised-button color="primary" type="submit">
+              Enregistrer
+            </button>
+            </div>
+        </form>
+
+    </div>
+    </div>
+   </div>
+</mat-card>

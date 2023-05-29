@@ -1,0 +1,240 @@
+<div class="bootstrap-wrapper" *ngIf="!isSubmit" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <mat-card>
+            <mat-card-title>  <b>instructions</b> </mat-card-title>
+           <!-- instructions -->
+           <img mat-card-image  src="/assets/img24.png"/>
+           <mat-card-content>
+            <ul>
+                <li><b>Ne pas retélécharger la page</b></li>
+                <li><b>Si le temps écoule vous serez rediriger automatiquement</b></li>
+               <li><b>Bonne continuation!!</b></li>
+            </ul>
+           </mat-card-content>
+        </mat-card>
+        </div>
+        <div class="col-md-8">
+            <mat-card>
+                <mat-card-content>
+                    <span onmousedown="return false" onselectstart="return false" class="ml10">
+                     Q 1) Au sujet des framework Java: 
+                        </span>
+                    
+                    <mat-divider></mat-divider>
+                    <br/>
+                    <div class="row mt20">
+                    <div class="col-md-6">
+                        <mat-checkbox>
+                      Java EE est un framework Java complet
+                      </mat-checkbox>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-checkbox>
+                        Css est un framework Java
+                       </mat-checkbox>
+                    </div>
+                    </div>
+                    <div class="row mt20">
+                        <div class="col-md-6">
+                            <mat-checkbox>
+                            AngularJs est un framework Java MVC
+                            </mat-checkbox>        
+                        </div>
+                        <div class="col-md-6">
+                            <mat-checkbox>
+                        Spring est un standard
+                            </mat-checkbox>
+                        </div>
+                        </div>
+                        <div class="row mt20">
+                            <div class="col-md-6">
+                                <mat-checkbox>
+                            Spring est un framework Java complet
+                        </mat-checkbox>    
+                            </div>
+                            <div class="col-md-6">
+                            <mat-checkbox>
+                                Java EE est un standard
+                            </mat-checkbox>
+                            </div>
+                            </div>  
+                            <br>
+                            <br>
+                            <span onmousedown="return false" onselectstart="return false" class="ml10">
+                                Q 2) Au sujet de JSP 
+                                   </span>
+                               
+                               <mat-divider></mat-divider>
+                               <br/>
+                               <div class="row mt20">
+                               <div class="col-md-6">
+                                   <mat-checkbox>
+                                  JSP veut dire "Java standard Protocol"                                </mat-checkbox>
+                               </div>
+                               <div class="col-md-6">
+                                   <mat-checkbox>
+                                  les JSP sont compilées en classe Java
+                                  </mat-checkbox>
+                               </div>
+                               </div>
+                               <div class="row mt20">
+                                <div class="col-md-6">
+                                    <mat-checkbox>
+                                   JSP ne peut être utilisé que dans Spring 
+                                  </mat-checkbox>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-checkbox>
+                                    JSP est un "language de templating" 
+                                   </mat-checkbox>
+                                </div>
+                                </div>
+                                <br>
+                                <br>
+                                <span onmousedown="return false" onselectstart="return false" class="ml10">
+                                    Q 3) Dans la phase de conception d'une base de données ,au niveau conceptuel,on: 
+                                </span>
+                                   
+                                   <mat-divider></mat-divider>
+                                   <br/>
+                                   <div class="row mt20">
+                              
+                                    <div class="col-md-6">
+                                  
+                                       <mat-radio-button>
+                                       Recense les régles d'organisation
+                                       </mat-radio-button>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <mat-radio-button>
+                                     Défini le type de base données
+                                      </mat-radio-button>
+                                   </div>
+                                
+                                   </div>
+                                   <div class="row mt20">
+                              
+                                    <div class="col-md-6">
+                                        <mat-radio-button>
+                                         Recense les régles de gestion
+                                        </mat-radio-button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-radio-button>
+                                            Défini l'architeture réseau
+                                       </mat-radio-button>
+                                    </div>
+                     
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <span onmousedown="return false" onselectstart="return false" class="ml10">    
+                                    Q 4) Le modèle MVC a pour rôle la conception d'IHM  en imposant une séparation entre:
+                                </span>
+                                   
+                                   <mat-divider></mat-divider>
+                                   <br/>
+                          
+                                   <div class="row mt20">
+                                   <div class="col-md-6">
+                                       
+                                       <mat-radio-button>
+                                       Les attributs et les méthodes des différentes classes concernées par l'IHM
+                                       </mat-radio-button>
+                                   </div>
+                                   </div>
+                                   <div class="row mt20">
+                                   <div class="col-md-6">
+                                       <mat-radio-button>
+                                     Les données,la présentation et les traitements de l'IHM concernée
+                                      </mat-radio-button>
+                                   </div>
+                                   </div>
+                             
+                                   <div class="row mt20">
+                                    <div class="col-md-8">
+                                   
+                                        <mat-radio-button>
+                                       les différents paquetages manipulant l'IHM concernée
+                                        </mat-radio-button>
+                                 
+                                    </div>
+                                   
+                                    </div>
+                </mat-card-content>
+            </mat-card>
+              
+            <!-- questions -->
+        <!--  <ng-container>
+            <h1 class="mt20">Vous pouvez tester </h1>
+          </ng-container>-->
+          <mat-card *ngFor="let i =index" class="mt10">
+            <mat-card-title>ou est le card</mat-card-title>
+            <mat-card-content>
+                
+                
+                    <b>Question {{i}}</b>
+                    <span onmousedown="return false" onselectstart="return false" class="ml10">
+                    Voici l'énoncé de la question
+                    </span>
+                
+                <p onmousedown="return false" onselectstart="return false" class="ml10">
+                    Voici l'énoncé de la question
+                    </p>
+                
+                <mat-divider></mat-divider>
+                <br/>
+                <div class="row mt20">
+                <div class="col-md-6">
+
+                    la réponse de la 1ere 
+                </div>
+                <div class="col-md-6">
+                    la 2éme réponse
+                </div>
+                </div>
+            <mat-divider></mat-divider>
+                <br/>
+                <div class="row mt20">
+                <div class="col-md-6">
+
+                    la réponse de la 1ere 
+                </div>
+                <div class="col-md-6">
+                    la 2éme réponse
+                </div>
+                </div>
+            </mat-card-content>
+          </mat-card>
+
+          <div class="container text-center mt20 mb20">
+            <button mat-raised-button color="primary"[routerLink]="'/candidat/commentaire'">Submit</button>
+          </div>
+          </div>
+          <div class="col-md-2">
+            <!-- progress -->
+    
+            <mat-card style="margin-top: 70px">
+              <mat-card-header>
+                <mat-card-title> Progresse </mat-card-title>
+                <mat-card-subtitle>
+                    Le test sera automatiquement envoyé quand le temps s'achève <b>0:0</b>
+      
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <h1 class="text-center">{{ getFormattedTime() }}</h1>
+                <mat-spinner
+                  mode="determinate"
+                  color="accent"
+                  style="margin: auto"
+                  [value]="(timer/(t5 * 60))*100"
+                ></mat-spinner>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>

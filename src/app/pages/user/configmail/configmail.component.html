@@ -1,0 +1,72 @@
+    <div class="row bat">
+       
+            <h1>Configurez votre mail</h1>
+          
+                    <div class="row mt20" *ngIf="entreprise">
+                               <div class="row mt20">
+                                <div class="col-md-8">
+                                  <mat-form-field>
+                                <input
+                                  [(ngModel)]="mail.mailFrom"
+                                  [value]="entreprise.email"
+                                  type="text"
+                                  name="title"
+                                  placeholder="saisir entreprise"
+                                  matInput
+
+                                  required
+                                />
+                              </mat-form-field>
+                               </div>
+                               </div>
+                    
+           
+                      <div class="row mt20">
+                        <mat-form-field>
+                            <input
+                              [(ngModel)]="mail.mailTo"
+                              [value]="email"
+                              type="text"
+                              name="title"
+                              placeholder="saisir votre email"
+                              matInput
+                              required
+                            />
+                          </mat-form-field>
+                        </div>
+                    
+                              
+                          <div class="row mt20">
+                              <mat-form-field>
+                                <input
+                                  [(ngModel)]="mail.mailSubject"
+                                  [value]="objet"
+                                  type="text"
+                                  name="title"
+                                  placeholder="saisir votre email"
+                                  matInput
+                                  required
+                                />
+                              </mat-form-field>
+                          </div>
+                          <div class="row mt20">
+                       <mat-form-field>
+                            <textarea
+                            
+                              name="description"
+                              matInput
+                              placeholder="entrer le corps du mail"
+                              [(ngModel)]="mail.mailContent"
+                              rows="15"
+                            ></textarea>
+                          </mat-form-field>
+                        </div>
+                                 
+                    </div>
+                    <div class="container text-center mt20 mb20">
+                        <button  mat-raised-button color="primary" (click)="formmail()">
+                         envoyer Mail
+                        </button>
+                        <button class="espace" mat-raised-button mat-dialog-close color="warn">annuler</button>
+                      </div>
+         

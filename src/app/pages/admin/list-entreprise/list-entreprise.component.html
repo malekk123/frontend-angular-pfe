@@ -1,0 +1,66 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="entete">
+      <h1 class="mt20">Toutes les entreprises</h1>
+      </div>
+      <mat-grid-list cols="4" rowHeight="500px" gutterSize="30px">
+        <mat-grid-tile  classe="mat-elevation-z4" style="border-radius: 5px;" *ngFor="let entr of entreprise">
+            <mat-card class="mat-elevation-z4">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>
+                  {{entr['noment'] }}
+                </mat-card-title>
+                <mat-card-subtitle>
+               
+                </mat-card-subtitle>
+              </mat-card-header>
+          
+              <mat-card-content>
+                <mat-list>
+                    <mat-list-item>
+                        <mat-icon>home</mat-icon>
+                        <div mat-line>{{ entr['adresse']  }}</div>
+                    </mat-list-item>
+                  <mat-list-item>
+                    <mat-icon>fax</mat-icon>
+                  <div mat-line>{{ entr['fax'] }}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                  <mat-list-item>
+                  <mat-icon>call</mat-icon>
+                <div mat-line>{{ entr['numtele'] }}</div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon>web</mat-icon>
+              <div mat-line>{{ entr['siteweb'] }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <mat-icon>email</mat-icon>
+                <div mat-line>{{entr['email']}}</div>
+            </mat-list-item>
+              <!--<mat-list-item>
+                <mat-icon></mat-icon>
+                <div mat-line>{{user['enabled']? "ACTIVE" : "NOTACTIVE"}}</div>
+              </mat-list-item>-->
+              </mat-list>
+               </mat-card-content>
+              <mat-card-action>
+                <button [routerLink]="'/admin/entreprise/'+entr['entrpriseid'] + '/'+entr['noment']+'/user'" class="espace" mat-button mat-mini-fab color="primary" >
+                  <mat-icon>visibility</mat-icon>
+                </button>
+                <button  [routerLink]="'/admin/entreprise/'+ entr['entrpriseid']"
+          class="espace" mat-button mat-mini-fab color="accent">
+            <mat-icon>edit</mat-icon>
+          </button>        
+                <button (click) = "delete(entr['entrpriseid'])"class="espace" mat-button mat-mini-fab color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-card-action>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list> 
+          </div>
+      </div>

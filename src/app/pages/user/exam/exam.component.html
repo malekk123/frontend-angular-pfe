@@ -1,0 +1,49 @@
+<h1 class="mt20">Les examen de la campagne <strong>{{nomCampagne}} </strong></h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container text-center">
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="'/user-dashboard/campagne/add-examen/' + campid + '/' + nomCampagne "
+          >
+            Ajouter un examen 
+          </button>
+          <button mat-raised-button class="espace" color="accent" (click)="back()">retourner vers la page précédente</button>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <br>
+        <div class="row">
+        <div class="col-md-6"  *ngFor="let ex of exam" >
+          <mat-card class="mb20">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>
+                Nom de l'examen:<strong>{{ex['nomexam']}} minutes</strong>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="truncate">durée de l'examen <mat-icon>timelapse</mat-icon>
+                :{{ ex['duree'] }}</p>
+            </mat-card-content>
+            <mat-card-action>
+              <button  class="espace"   (click)="goclassement(ex['idExam'])" mat-button mat-mini-fab color="primary" >
+                <mat-icon>info</mat-icon>
+              </button>
+              <button  
+              class="espace" mat-button mat-mini-fab color="accent">
+                <mat-icon>edit_calendar</mat-icon>
+              </button>
+              <button (click) = "delete(ex['idExam'])"class="espace" mat-button mat-mini-fab color="warn">
+                <mat-icon>auto_delete</mat-icon>
+              </button>
+              <button  (click)="go(ex['idExam'])" class="espace btn btn-warning">
+                <mat-icon>touch_app</mat-icon>
+                faire un essai</button>
+            </mat-card-action>
+          </mat-card>
+        </div>
+

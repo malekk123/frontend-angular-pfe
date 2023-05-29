@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper Background">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+                
+            <h1 class="text-center">Saisir votre email </h1>
+            <div class="confirm text-center" *ngIf="submitr">
+              <h1>
+             <b> Email envoyé veuillez vérifier votre boîte de réception 
+            </b>
+            </h1>
+            </div>
+            <!-- {{ loginData | json }} -->
+            <br>
+            <form #test="ngForm" (ngSubmit)="formSubmit()">
+              <!-- username field -->
+             
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>l'Email de l'utilisateur </mat-label>
+                <input
+                  [(ngModel)]="loginData.username"
+                  name="username"
+                  required
+                  [pattern]="usernameT"
+                  matInput
+                  placeholder="Entrer le nom de l'utilisateur"
+                />
+                <mat-hint>Vous pouvez saisir votre email </mat-hint>
+              </mat-form-field>
+   
+              <div class="container text-center">
+                <button mat-raised-button color="primary" type="submit" [disabled]="test.form.invalid">
+                  envoyer mail 
+                </button>
+                <div>
+                <a mat-button 
+                routerLink="/login"
+                >
+                Vous voulez s'authentifier
+            </a>
+          
+              </div>
+
+            </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  

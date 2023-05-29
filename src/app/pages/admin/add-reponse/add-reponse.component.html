@@ -1,0 +1,27 @@
+<div>    
+    <mat-label>Ajouter les réponses et assigné celles qui sont correctes   </mat-label>
+
+        <button mat-mini-fab color="accent">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <form>
+     <div class="col-md-4">
+     <mat-form-field>
+    <input
+    [(ngModel)]="reponset.reponse"
+    name="reponse possible"
+    type="text"
+    matInput
+    />
+    </mat-form-field>
+  </div>
+  <div class="col-md-4">
+    <mat-slide-toggle
+        name="active"
+        [(ngModel)]="reponset.estcorrecte"
+        class="mt20"
+      >
+      </mat-slide-toggle>
+    </div>
+  </form>

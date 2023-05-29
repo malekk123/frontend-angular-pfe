@@ -1,0 +1,44 @@
+<mat-card>
+    <mat-action-list>
+       <button routerLink="/user-dashboard" routerLinkActive mat-list-item><mat-icon mat-list-icon >home</mat-icon>Page d'accueil</button>
+       <button mat-list-item routerLink="/user-dashboard/profile"><mat-icon mat-list-icon>account_circle</mat-icon>Profil</button>
+       <button mat-list-item [routerLink]="['/user-dashboard/profile-entreprise']" ><mat-icon mat-list-icon>apartment</mat-icon>Profil entreprise</button>
+       <button mat-list-item routerLink="/user-dashboard/campagne"><mat-icon mat-list-icon>campaign</mat-icon>Campagnes</button>
+      <button mat-list-item routerLink="/user-dashboard/voir-invitation"><mat-icon>forward_to_inbox</mat-icon> Invitation </button>
+   <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <button mat-list-item >Questionnaires</button> <!--routerLink="/user-dashboard/questionnaire"-->
+          
+        </mat-panel-title>
+        <mat-panel-description>
+        <mat-icon>account_circle</mat-icon>
+  <!--Currently I am {{panelOpenState ? 'open' : 'closed'}}-->
+</mat-panel-description>
+
+</mat-expansion-panel-header>
+<!--<p>I'm visible because I am open</p>-->
+<div mat-subheader>
+  Les categories disponibles 
+</div>
+<!--<button mat-list-item routerLink="/user-dashboard/questionnaire">
+  <mat-icon mat-list-icon>quiz</mat-icon> tout les Quizz
+</button>-->
+<button
+  [routerLink]="'/user-dashboard/questionnaire/' + c.cid"
+  mat-list-item
+  *ngFor="let c of categories"
+>
+  <mat-icon mat-list-icon>quiz</mat-icon> {{ c.title }}
+</button>
+</mat-expansion-panel>
+</mat-accordion>
+       <button mat-list-item (click)="logout()"
+       *ngIf="isLoggedIn" >
+         <mat-icon mat-list-icon>logout</mat-icon> Logout
+       </button>
+  
+    </mat-action-list>
+</mat-card>
+ 

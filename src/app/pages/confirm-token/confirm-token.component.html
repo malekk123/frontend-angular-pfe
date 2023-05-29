@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+     <h3 class="text-center"><b>Page de confirmation </b></h3>
+      <div class="alert alert-primary text-center" *ngIf="emailConfirmation" role="alert">
+        <div class="vert text-center" >
+         <img class="text-center" src="/assets/confirmation.png"/>
+        </div>
+        <br>
+        <b>Succès</b>
+        <br>
+        <br>
+        Votre email est confirmé, 
+        <br>
+        <br>
+        vous pouvez maintenant accéder à votre espace  
+        <br>
+        <br>
+        <button mat-raised-button color="primary"class="text-center"routerLink="/login">Accéder à la page login</button>
+      </div>
+      <div class="alert alert-warning text-center" *ngIf="!emailConfirmation" role="alert">
+        <div class="rouge text-center">
+        <img class="text-center" src="/assets/cross.png"/>
+        </div>
+        <br>
+        Il n'est pas possible de confimer votre email
+        <br>
+        <br>
+        Veuillez vérifier votre boîte de réception 
+      </div>
+    </div>
+</div>

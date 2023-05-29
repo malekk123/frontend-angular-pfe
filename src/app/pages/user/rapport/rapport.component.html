@@ -1,0 +1,43 @@
+<div  id="content">
+<mat-card id="content">
+    <mat-card-header>
+        <div mat-card-avatar class="head">
+        </div>
+        <mat-card-title>Rapport du candidat</mat-card-title>
+    </mat-card-header>
+
+   
+
+<mat-card-content>
+<div *ngIf="cads">
+<p>
+    Nom du candidat:<strong> {{cads.nom}} {{cads.prenom}} </strong>
+</p>
+<br>
+<p>
+    Mail du candidat: <strong>{{cads.email}}</strong>
+</p>
+<br>
+<p>
+    Note du candidat: <strong>{{cads.candidatexam.notetotal}}</strong>
+</p>
+<br>
+<p>
+    temps écoulé: <strong> {{getFormattedTime(cads.candidatexam.timer)}} </strong>
+</p>
+<br>
+<p>
+    nombre de réponses correctes:<strong> {{cads.candidatexam.numcorrectanswer}}</strong>
+</p>
+<br>
+<p>
+    nombre de question atteintes: <strong>{{cads.candidatexam.numquestionattempted}} </strong>
+</p>
+
+</div></mat-card-content>
+<mat-card-actions>
+    <button mat-raised-button color="primary" (click)="makepdf()"class="ml20">Télécharger pdf</button>
+    <button mat-raised-button color="accent" (click)="printPage()" >Imprimer</button>
+    <button mat-raised-button color="warn" mat-dialog-close="">Fermer</button>
+</mat-card-actions>
+</mat-card>
